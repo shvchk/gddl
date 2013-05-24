@@ -7,6 +7,12 @@
     * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    html, body {
+        height: 100%;
     }
 
     body {
@@ -16,8 +22,6 @@
 
     button,
     input {
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
         font: 14px/2 Arimo, Arial, sans-serif;
         height: 2em;
         padding: 0 1em;
@@ -42,10 +46,17 @@
         border-bottom: 1px dotted #ddd;
     }
 
-    #content {
+    #page {
+        height: 100%;
         margin: auto;
-        margin-top: 5em;
+        padding: 0 1em;
+        padding-top: 1px; /* Prevent margin collapse */
+        position: relative;
         width: 960px;
+    }
+
+    #header {
+        margin-top: 5em;
     }
     
     #link {
@@ -94,6 +105,22 @@
         color: #bbb;
         margin-top: 1em;
     }
+
+    #footer {
+        border-top: 1px solid #e4e4e4;
+        bottom: 0;
+        left: 0;
+        padding: .5em 1em;
+        position: absolute;
+        text-align: right;
+        width: 100%;
+    }
+
+    #footer a {
+        color: #444;
+        text-decoration: none;
+        border-bottom: 1px dotted #ddd;
+    }
     
     .error {
         color: #a44;
@@ -101,13 +128,16 @@
     </style>
 </head>
 <body>
-    <div id='content'>
-        <h1 id='header'><a href="https://j.mp/gdrive-dl">Google Drive Direct Link</a></h1>
-        <div id='link-processing'>
-            <input id='link' type='text' size='80' placeholder='Paste your link here'>
-            <button id='get'>Get direct link</button>
-            <button id='clear'>Clear</button>
+    <div id='page'>
+        <h1 id='header'><a href="http://shvchk.github.io/gddl">Google Drive Direct Link</a></h1>
+        <div id='content'>
+            <div id='link-processing'>
+                <input id='link' type='text' size='80' placeholder='Paste your link here'>
+                <button id='get'>Get direct link</button>
+                <button id='clear'>Clear</button>
+            </div>
         </div>
+        <div id='footer'><a href='https://github.com/shvchk/gddl'>GitHub</a></div>
     </div>
 
     <script>

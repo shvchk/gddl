@@ -132,7 +132,7 @@
         <h1 id='header'><a href="http://shvchk.github.io/gddl">Google Drive Direct Link</a></h1>
         <div id='content'>
             <div id='link-processing'>
-                <input id='link' type='text' size='80' placeholder='Paste your link here'>
+                <input id='link' type='text' size='80' placeholder='Paste your link or file ID here'>
                 <button id='get'>Get direct link</button>
                 <button id='clear'>Clear</button>
             </div>
@@ -160,9 +160,13 @@
         var el_arrow_id = 'arrow';
 
         dom.click(dom.gid('get'), function() {
-            var id = process_link(el_link.value);
+            var id = el_link.value;
+            if (~id.indexOf('://')) {
+                id = process_link(el_link.value);
+            }
+
             var url = base_url + id;
-            var link = (id) ? '<a href="' + url + '">' + url + '</a>' : '<span class="error">Wrong link</span>';
+            var link = (id) ? '<a href="' + url + '">' + url + '</a>' : '<span class="error">Wrong link or ID</span>';
             var link_wrapper = dom.gid(el_processed_link_id);
             
             if (link_wrapper) {

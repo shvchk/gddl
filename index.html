@@ -186,7 +186,7 @@
         });
 
         function process_link (link) {
-            var pattern = /\/d\/(.+?)\/edit/i;
+            var pattern = /\/d\/(.+?)\//i;
             var results = pattern.exec(link);
 
             link = (results) ? results[1] : null;
